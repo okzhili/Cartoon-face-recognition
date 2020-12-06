@@ -1,10 +1,10 @@
 import pickle
 import numpy as np
 import torch
-dis1 = torch.load('dis/resnest101_16.pth')
-dis2 = torch.load('dis/resnest269_16.pth')
-dis3 = torch.load('dis/1resnest269_16.pth')
-g_camids = pickle.load(open('g_camids','rb'))
+dis1 = torch.load('dis/resnest101_16_320.pth')
+dis2 = torch.load('dis/resnest269_16_256.pth')
+dis3 = torch.load('dis/resnest269_16_320.pth')
+g_camids = pickle.load(open('g_camids.pkl','rb'))
 distmat = (dis1+dis2+dis3)/3
 dis_q= distmat[:,:2915]
 query_rank = dis_q.topk(10,largest=False)

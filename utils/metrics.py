@@ -126,6 +126,7 @@ class R1_mAP_eval():
         gf = feats[self.num_query:]
         g_pids = np.asarray(self.pids[self.num_query:])
         g_camids = np.asarray(self.camids[self.num_query:])
+        pickle.dump(g_camids,open('g_camids.pkl','wb'))
         distmat = re_ranking(qf, gf, k1=20, k2=6, lambda_value=0.3)
         distmat = torch.tensor(distmat)
         torch.save(distmat,'dis/'+str(name)+'_'+str(K)+'_'+str(height)+'.pth')
