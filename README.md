@@ -32,6 +32,6 @@ python test.py --config_file=configs/final/resnest269_16_320.yml
 python test.py --config_file=configs/final/resnest101_16.yml
 ```
 推理完成后后在submit文件夹里会生成单模的提交文件，在dis文件夹里保存了距离矩阵用于后面的多模型集成
-#集成
+# 集成
 python ensemble.py
 最后在根目录生成submit.csv提交文件
