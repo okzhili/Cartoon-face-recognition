@@ -107,7 +107,7 @@ class R1_mAP_eval():
         self.pids.extend(np.asarray(pid))
         self.camids.extend(np.asarray(camid))
 
-    def compute(self,name,K):  # called after each epoch
+    def compute(self,name,K,height):  # called after each epoch
         feats = torch.cat(self.feats, dim=0)
         if self.feat_norm:
             print("The test feature is normalized")
@@ -128,15 +128,15 @@ class R1_mAP_eval():
         g_camids = np.asarray(self.camids[self.num_query:])
         distmat = re_ranking(qf, gf, k1=20, k2=6, lambda_value=0.3)
         distmat = torch.tensor(distmat)
-        torch.save(distmat,'dis/1'+str(name)+'_'+str(K)+'.pth')
+        torch.save(distmat,'dis/'+str(name)+'_'+str(K)+'_'+str(height)+'.pth')
         distmat = distmat[:self.num_query, self.num_query:]
         rank = distmat.topk(1,largest=False)[1]
         rank_list=[]
         for num in rank:
             rank_list.append(g_camids[num])
         rank_list = np.array(rank_list)
-        print('提交文件'+'submit_'+str(name)+'_'+str(K)+'.csv已保存')
-        np.savetxt('submit/1submit_'+str(name)+'_'+str(K)+'.csv',rank_list,delimiter='\n',fmt = '%s')
+        print('提交文件'+'submit_'+str(name)+'_'+str(K)+'_'+str(height)+'.csv已保存')
+        np.savetxt('submit/submit_'+str(name)+'_'+str(K)+'_'+str(height)+'.csv',rank_list,delimiter='\n',fmt = '%s')
 class R1_mAP():
     def __init__(self, num_query, max_rank=50, feat_norm=True, reranking=False, reranking_track=False):
         super(R1_mAP, self).__init__()

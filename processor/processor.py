@@ -236,7 +236,7 @@ def do_inference(cfg,
                 evaluator.update((feat, pid, camid, trackid, imgpath))
             img_path_list.extend(imgpath)
     if cfg.TEST.EVAL:
-        evaluator.compute(name=cfg.MODEL.NAME,K=cfg.DATALOADER.NUM_INSTANCE)
+        evaluator.compute(name=cfg.MODEL.NAME,K=cfg.DATALOADER.NUM_INSTANCE,height=cfg.INPUT.SIZE_TRAIN[0])
         # logger.info("Validation Results ")
         # logger.info("mAP: {:.1%}".format(mAP))
         # for r in [1, 5, 10]:

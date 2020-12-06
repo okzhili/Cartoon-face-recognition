@@ -3,23 +3,12 @@ import torchvision.transforms as T
 from torch.utils.data import DataLoader
 
 from datasets.dm import DM
-from .aic import AIC
-from .aic_aicsim import AIC_AICSIM
-from .aic_querymining import AIC_Q
-from .aic_crop import AIC_CROP
-from .veri import VeRi
 from .bases import ImageDataset
 from .preprocessing import RandomErasing
 from .sampler import RandomIdentitySampler
 
 __factory = {
-    'veri': VeRi,
-    'aic':AIC,
-    'aic_aicsim':AIC_AICSIM,
-    'aic_query':AIC_Q,
-    'aic_crop':AIC_CROP,
     'dm':DM
-
 }
 
 def train_collate_fn(batch):

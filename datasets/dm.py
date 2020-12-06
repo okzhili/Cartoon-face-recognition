@@ -63,11 +63,11 @@ class DM(BaseImageDataset):
         for queryid in query:
             pid = -1
             camid = queryid
-            img_path='images/test/'+str(camid)+'.jpg'
+            img_path='images/test/test/'+str(camid)+'.jpg'
             query_data.append((img_path, pid, camid, 1))
         for galleryid in gallery:
             pid = -1
             camid = galleryid
-            img_path='images/test/'+str(camid)+'.jpg'
+            img_path='images/test/test/'+str(camid)+'.jpg'
             gallery_data.append((img_path, pid, camid, 1))
         return query_data,gallery_data
