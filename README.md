@@ -21,7 +21,7 @@ python train.py --config_file=configs/final/resnest269_16_320.yml
 python train.py --config_file=configs/final/resnest101_16.yml
 ```
 
-#推理
+# 推理
 ```bash
 python test.py --config_file=configs/final/resnest269_16.yml
 ```
