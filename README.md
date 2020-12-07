@@ -9,7 +9,8 @@ Tesla V100 32GB*1
 pytorch 1.6
 
 apex
-
+# 数据
+将train和test解压到images文件夹，并把两个txt文件也放进去
 # 训练
 ```bash
 python train.py --config_file=configs/final/resnest269_16.yml
