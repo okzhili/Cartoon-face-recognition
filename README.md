@@ -13,24 +13,24 @@ apex
 将train和test解压到images文件夹，并把两个txt文件也放进去
 # 训练
 ```bash
-python train.py --config_file=configs/final/resnest269_16.yml
+python train.py --config_file=configs/resnest269_16.yml
 ```
 ```bash
-python train.py --config_file=configs/final/resnest269_16_320.yml
+python train.py --config_file=configs/esnest269_16_320.yml
 ```
 ```bash
-python train.py --config_file=configs/final/resnest101_16.yml
+python train.py --config_file=configs/resnest101_16.yml
 ```
 
 # 推理
 ```bash
-python test.py --config_file=configs/final/resnest269_16.yml
+python test.py --config_file=configs/resnest269_16.yml
 ```
 ```bash
-python test.py --config_file=configs/final/resnest269_16_320.yml
+python test.py --config_file=configs/resnest269_16_320.yml
 ```
 ```bash
-python test.py --config_file=configs/final/resnest101_16.yml
+python test.py --config_file=configs/resnest101_16.yml
 ```
 推理完成后后在submit文件夹里会生成单模的提交文件，在dis文件夹里保存了距离矩阵用于后面的多模型集成
 # 集成
