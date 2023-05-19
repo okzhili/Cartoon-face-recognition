@@ -7,10 +7,11 @@
 Tesla V100 32GB*1
 
 pytorch 1.6
-
 apex
 # 数据
 将train和test解压到images文件夹，并把两个txt文件也放进去
+
+修改yml配置文件，将训练模型保存地址和预训练模型地址修改为自己的地址，gpu显存不够，可以替换更小的模型或者减少bathsize。
 # 训练
 ```bash
 python train.py --config_file=configs/resnest269_16.yml
@@ -21,7 +22,7 @@ python train.py --config_file=configs/esnest269_16_320.yml
 ```bash
 python train.py --config_file=configs/resnest101_16.yml
 ```
-
+将模型加载地址修改为训练得到的权重地址
 # 推理
 ```bash
 python test.py --config_file=configs/resnest269_16.yml
